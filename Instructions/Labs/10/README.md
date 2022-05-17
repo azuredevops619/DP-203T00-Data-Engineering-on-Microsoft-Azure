@@ -471,15 +471,21 @@ Tailwind Traders has asked you if there is a way to mark queries executed by the
 
 
 Run this template with same details as used in the initial setup. Ignore datalake can not be updated error. This template will create few delta resources.
+
+
+Template (<https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2FMCW-Azure-Synapse-Analytics-and-AI%2Fmain%2FHands-on%2520lab%2Fenvironment-setup%2Fautomation%2F00-asa-workspace-core.json>)
+
 Run the below in setup VM. Give correct RG, SQL password & Unique suffix used. Ignore errors, this script will create the delta pipelines that we need. 
 
-'''
+```sql
 git clone https://github.com/microsoft/MCW-Azure-Synapse-Analytics-and-AI.git Synapse-MCW
 
 cd './Synapse-MCW/Hands-on lab/environment-setup/automation'
 
 ./01-environment-setup.ps1
-'''
+```
+
+Note: Change the table name in pipeline activity query to wwi.SaleSmall from wwi_mcw.SaleSmall
 
 
 
