@@ -98,7 +98,7 @@ In this task, you create a star schema in SQL database, using foreign key constr
 
     ![The SourceDB server name value is highlighted.](media/sourcedb-server-name.png "Server name")
 
-4. Open Azure Data Studio.
+4. Install and Open Azure Data Studio. (<https://go.microsoft.com/fwlink/?linkid=2193235>). You can use SSMS as well. 
 
 5. Select **Servers** on the left-hand menu, then click **Add Connection**.
 
