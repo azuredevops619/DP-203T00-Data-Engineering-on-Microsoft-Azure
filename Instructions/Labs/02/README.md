@@ -1,4 +1,4 @@
-# Module 2 - Design and Implement the serving layer with Synapse Pipelines, Dedicated SQL pool(OLAP) & Azure SQL DB(OLTP)
+# Module 2 - Design and Implement the serving layer with Synapse Pipelines, Dedicated SQL pool (OLAP) & Azure SQL DB (OLTP)
 
 This module teaches how to design and implement data stores in a modern data warehouse to optimize analytical workloads. The student will learn how to design a multidimensional schema to store fact and dimension data. Then the student will learn how to populate slowly changing dimensions through incremental data loading from Azure Synapse Pipelines.
 
