@@ -108,4 +108,38 @@ SELECT * from sys.dm_pdw_dms_external_work;
 -- This view shows each DMS worker thread and information on the work they are doing or have done. This includes the node and distribution that the worker is working on, CPU, time and other measurements
 SELECT * from sys.dm_pdw_dms_workers;
 
+
+
+-- How many of each type of node do I have on my system?
+SELECT [type], COUNT(*) node_count FROM sys.dm_pdw_nodes
+GROUP BY [type];
+
+-- How many threads are running on each node?
+SELECT nds.pdw_node_id,nds.[type], COUNT(*)threadCount
+FROM sys.dm_pdw_nodes nds
+INNER JOIN sys.dm_pdw_os_threads thrs
+ON nds.pdw_node_id=thrs.pdw_node_id
+GROUP BY nds.pdw_node_id,nds.[type];
+
+
+-- This view shows the current locks granted and being waited on for the active requests in the system.
+SELECT * from sys.dm_pdw_lock_waits
+--  This view shows waits that are related to the concurrency limits of pool. 
+SELECT * from sys.dm_pdw_resource_waits;
+-- this view is a union of the previous two views in case you are interested in both the lock and the concurrency waits
+SELECT * from sys.dm_pdw_waits;
+-- this view aggregates the amount of waits and waiting time for each wait type on each node of the system
+SELECT * from sys.dm_pdw_wait_stats;
+
+-- Which queries are being queued by the system due to concurrency?
+SELECT r.request_id queuedRequest,r.[status] requestStatus,
+r.command command, waits.[state] wait_state,waits.[resource_class]
+FROM sys.dm_pdw_exec_requests r
+INNER JOIN sys.dm_pdw_resource_waits waits
+ON r.request_id=waits.request_id
+WHERE waits.[type]='UserConcurrencyResourceType'
+AND waits.[state]='Queued';
+
+
+
 ```
