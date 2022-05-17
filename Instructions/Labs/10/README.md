@@ -427,7 +427,7 @@ To understand their requirements, let's first execute a distinct count over the 
 
     This means, if COUNT (DISTINCT) returns `1,000,000`, HyperLogLog will return a value in the range of `999,736` to `1,016,234`.
 
-## Exercise 2: Using data loading best practices in Azure Synapse Analytics
+## Exercise 2: Using data loading best practices in Azure Synapse Analytics (Skip for now): Move to the next exercise: 3  (fixing steps) 
 
 ### Task 1: Implement workload management
 
