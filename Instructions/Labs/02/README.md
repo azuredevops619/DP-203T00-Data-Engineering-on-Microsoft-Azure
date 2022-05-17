@@ -1419,6 +1419,7 @@ Linked services in Synapse Analytics enables you to manage connections to extern
     - **Authentication type**: Select `SQL authentication`
     - **Username**: Enter `sqladmin`
     - **Password**: Enter the password you provided during the environment setup, or that was given to you if this is a hosted lab environment (also used at the beginning of this lab)
+    - Ensure Allow Azure Service is selected in the Azure SQL DB Firewall
 
     ![The form is completed as described.](media/new-linked-service-sql-form.png "New linked service form")
 
