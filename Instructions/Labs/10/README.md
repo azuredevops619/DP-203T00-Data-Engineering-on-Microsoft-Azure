@@ -469,6 +469,20 @@ Tailwind Traders has asked you if there is a way to mark queries executed by the
     ORDER BY submit_time ,s.login_name
     ```
 
+
+Run this template with same details as used in the initial setup. Ignore datalake can not be updated error. This template will create few delta resources.
+Run the below in setup VM. Give correct RG, SQL password & Unique suffix used. Ignore errors, this script will create the delta pipelines that we need. 
+
+'''
+git clone https://github.com/microsoft/MCW-Azure-Synapse-Analytics-and-AI.git Synapse-MCW
+
+cd './Synapse-MCW/Hands-on lab/environment-setup/automation'
+
+./01-environment-setup.ps1
+'''
+
+
+
 5. Select **Run** from the toolbar menu to execute the SQL command.
 
     ![The run button is highlighted in the query toolbar.](media/synapse-studio-query-toolbar-run.png "Run")
