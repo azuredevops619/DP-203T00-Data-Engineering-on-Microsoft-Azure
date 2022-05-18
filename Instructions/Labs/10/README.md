@@ -485,27 +485,7 @@ CREATE USER [asa.sql.workload02] FOR LOGIN [asa.sql.workload02]
     --and submit_time>dateadd(minute,-2,getdate())
     ORDER BY submit_time ,s.login_name
     ```
-
-Run the below in setup VM. Give correct RG, SQL password & Unique suffix used. Ignore errors, this script will create the delta pipelines that we need. 
-
-```sql
-
-az login
-Connect-AzAccount
-
-Set-ExecutionPolicy Unrestricted
-
-git clone https://github.com/microsoft/MCW-Azure-Synapse-Analytics-and-AI.git Synapse-MCW
-
-cd './Synapse-MCW/Hands-on lab/environment-setup/automation'
-
-./01-environment-setup.ps1
-```
-
-Note: Change the table name in pipeline activity query to wwi.SaleSmall from wwi_mcw.SaleSmall
-
-
-
+    
 5. Select **Run** from the toolbar menu to execute the SQL command.
 
     ![The run button is highlighted in the query toolbar.](media/synapse-studio-query-toolbar-run.png "Run")
