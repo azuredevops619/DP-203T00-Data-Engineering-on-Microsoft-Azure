@@ -288,6 +288,16 @@ It is important to identify data columns of that hold sensitive information. Typ
 
 5. You may now close the script tab, when prompted choose to **Discard all changes**.
 
+```sql
+--Map table name to policy and filter
+SELECT t.name as table_name, sp.name as filter_name, pr.object_id, pr.target_object_id,  pr.predicate_definition , 
+pr.predicate_type_desc from sys.security_predicates pr 
+join sys.security_policies sp
+on pr.object_id = sp.object_id 
+join sys.tables t 
+on t.object_id = pr.target_object_id
+```
+
 ### Task 3 - Dynamic data masking
 
 1. In **Azure Synapse Studio**, select **Develop** from the left menu.
