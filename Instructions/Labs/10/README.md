@@ -724,7 +724,7 @@ A one-time load to a small table with an INSERT statement, or even a periodic re
 
 If you have thousands or more single inserts throughout the day, batch the inserts so you can bulk load them. Develop your processes to append the single inserts to a file, and then create another process that periodically loads the file.
 
-16. ![Best practices for loading data into a dedicated SQL pool in Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/data-loading-best-practices)
+16. [Best practices for loading data into a dedicated SQL pool in Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/data-loading-best-practices)
 
 ## Exercise 3: Optimizing data warehouse query performance in Azure Synapse Analytics
 
