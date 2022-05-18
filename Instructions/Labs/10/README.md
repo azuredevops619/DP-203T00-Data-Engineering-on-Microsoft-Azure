@@ -454,12 +454,8 @@ Tailwind Traders has asked you if there is a way to mark queries executed by the
 3. In the toolbar menu, connect to the **SQLPool01** database to execute the query.
 
     ![The connect to option is highlighted in the query toolbar.](media/synapse-studio-query-toolbar-connect.png "Query toolbar")
-
-4. In the query window, replace the script with the following to confirm that there are no queries currently being run by users logged in as `asa.sql.workload01`, representing the CEO of the organization or `asa.sql.workload02` representing the data analyst working on the project:
-
-    ```sql
     
-    
+```sql
 -- Create a data loading user
 
 -- Note: Use Master 
@@ -473,8 +469,11 @@ SELECT * FROM master.sys.sql_logins;
 -- Note: Switch to the dedicated SQL pool
 CREATE USER [asa.sql.workload01] FOR LOGIN [asa.sql.workload01]
 CREATE USER [asa.sql.workload02] FOR LOGIN [asa.sql.workload02]
-    
-    ```
+```
+
+4. In the query window, replace the script with the following to confirm that there are no queries currently being run by users logged in as `asa.sql.workload01`, representing the CEO of the organization or `asa.sql.workload02` representing the data analyst working on the project:
+
+
     
     ```sql 
     
