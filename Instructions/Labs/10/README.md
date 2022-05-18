@@ -719,12 +719,18 @@ The MIN_PERCENTAGE_RESOURCE parameter for the workload group dedicates memory to
 
     ![The run button is highlighted in the query toolbar.](media/synapse-studio-query-toolbar-run.png "Run")
 
-15. Insert data into a production table
+15. 
+Load to a staging table
+To achieve the fastest loading speed for moving data into a data warehouse table, load data into a staging table. Define the staging table as a heap and use round-robin for the distribution option.
+
+Consider that loading is usually a two-step process in which you first load to a staging table and then insert the data into a production data warehouse table. If the production table uses a hash distribution, the total time to load and insert might be faster if you define the staging table with the hash distribution. Loading to the staging table takes longer, but the second step of inserting the rows to the production table does not incur data movement across the distributions.
+
+16. Insert data into a production table
 A one-time load to a small table with an INSERT statement, or even a periodic reload of a look-up might perform good enough with a statement like INSERT INTO MyLookup VALUES (1, 'Type 1'). However, singleton inserts are not as efficient as performing a bulk-load.
 
 If you have thousands or more single inserts throughout the day, batch the inserts so you can bulk load them. Develop your processes to append the single inserts to a file, and then create another process that periodically loads the file.
 
-16. [Best practices for loading data into a dedicated SQL pool in Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/data-loading-best-practices)
+16. Read more [Best practices for loading data into a dedicated SQL pool in Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/data-loading-best-practices)
 
 ## Exercise 3: Optimizing data warehouse query performance in Azure Synapse Analytics
 
