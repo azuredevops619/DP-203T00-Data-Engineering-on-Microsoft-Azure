@@ -427,7 +427,7 @@ To understand their requirements, let's first execute a distinct count over the 
 
     This means, if COUNT (DISTINCT) returns `1,000,000`, HyperLogLog will return a value in the range of `999,736` to `1,016,234`.
 
-## Exercise 2: Using data loading best practices in Azure Synapse Analytics (Skip for now): Move to the next exercise: 3  (fixing steps) 
+## Exercise 2: Using data loading best practices in Azure Synapse Analytics
 
 ### Task 1: Implement workload management
 
@@ -458,6 +458,24 @@ Tailwind Traders has asked you if there is a way to mark queries executed by the
 4. In the query window, replace the script with the following to confirm that there are no queries currently being run by users logged in as `asa.sql.workload01`, representing the CEO of the organization or `asa.sql.workload02` representing the data analyst working on the project:
 
     ```sql
+    
+    
+-- Create a data loading user
+
+-- Note: Use Master 
+-- Represent CEO
+CREATE LOGIN "asa.sql.workload01" WITH PASSWORD = 'a123STRONGpassword!';
+-- Represent data analyst
+CREATE LOGIN "asa.sql.workload02" WITH PASSWORD = 'a123STRONGpassword!';
+-- Check the new logins 
+SELECT * FROM master.sys.sql_logins;
+
+-- Note: Switch to the dedicated SQL pool
+CREATE USER [asa.sql.workload01] FOR LOGIN [asa.sql.workload01]
+CREATE USER [asa.sql.workload02] FOR LOGIN [asa.sql.workload02]
+    
+    
+    
     --First, let's confirm that there are no queries currently being run by users logged in workload01 or workload02
 
     SELECT s.login_name, r.[Status], r.Importance, submit_time, 
