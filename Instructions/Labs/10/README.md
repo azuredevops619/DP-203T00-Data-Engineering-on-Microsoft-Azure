@@ -456,15 +456,26 @@ Tailwind Traders has asked you if there is a way to mark queries executed by the
 
 -- Note: Use Master 
 -- Represent CEO
-CREATE LOGIN "asa.sql.workload01" WITH PASSWORD = 'a123STRONGpassword!';
+CREATE LOGIN "asa.sql.workload01" WITH PASSWORD = 'Put Your Setup Password';
 -- Represent data analyst
-CREATE LOGIN "asa.sql.workload02" WITH PASSWORD = 'a123STRONGpassword!';
+CREATE LOGIN "asa.sql.workload02" WITH PASSWORD = 'Put Your Setup Password';
 -- Check the new logins 
 SELECT * FROM master.sys.sql_logins;
 
 -- Note: Switch to the dedicated SQL pool
 CREATE USER [asa.sql.workload01] FOR LOGIN [asa.sql.workload01]
 CREATE USER [asa.sql.workload02] FOR LOGIN [asa.sql.workload02]
+
+GRANT INSERT ON wwi.SaleSmall TO [asa.sql.workload01]
+GRANT SELECT ON wwi.SaleSmall TO [asa.sql.workload01];
+GRANT CREATE TABLE TO [asa.sql.workload01];
+GRANT ALTER ON SCHEMA::dbo TO [asa.sql.workload01];
+
+GRANT INSERT ON wwi.SaleSmall TO [asa.sql.workload02];
+GRANT SELECT ON wwi.SaleSmall TO [asa.sql.workload02];
+GRANT CREATE TABLE TO [asa.sql.workload02];
+GRANT ALTER ON SCHEMA::dbo TO [asa.sql.workload02];
+
 ```
 
 3. In the toolbar menu, connect to the **SQLPool01** database to execute the query.
@@ -585,6 +596,7 @@ Given the workload requirements provided by Tailwind Traders, you decide to crea
 Let's start by experimenting with different parameters.
 
 1. In the query window, replace the script with the following:
+The MIN_PERCENTAGE_RESOURCE parameter for the workload group dedicates memory to that workload group exclusively. [Guaranteed Concurrency] = [MIN_PERCENTAGE_RESOURCE] / [REQUEST_MIN_RESOURCE_GRANT_PERCENT]
 
     ```sql
     IF NOT EXISTS (SELECT * FROM sys.workload_management_workload_groups where name = 'CEODemo')
@@ -706,6 +718,13 @@ Let's start by experimenting with different parameters.
 14. Select **Run** from the toolbar menu to execute the SQL command.
 
     ![The run button is highlighted in the query toolbar.](media/synapse-studio-query-toolbar-run.png "Run")
+
+15. Insert data into a production table
+A one-time load to a small table with an INSERT statement, or even a periodic reload of a look-up might perform good enough with a statement like INSERT INTO MyLookup VALUES (1, 'Type 1'). However, singleton inserts are not as efficient as performing a bulk-load.
+
+If you have thousands or more single inserts throughout the day, batch the inserts so you can bulk load them. Develop your processes to append the single inserts to a file, and then create another process that periodically loads the file.
+
+16. ![Best practices for loading data into a dedicated SQL pool in Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/data-loading-best-practices)
 
 ## Exercise 3: Optimizing data warehouse query performance in Azure Synapse Analytics
 
