@@ -486,15 +486,15 @@ CREATE USER [asa.sql.workload02] FOR LOGIN [asa.sql.workload02]
     ORDER BY submit_time ,s.login_name
     ```
 
-
-Run this template with same details as used in the initial setup. Ignore datalake can not be updated error. This template will create few delta resources.
-
-
-Template (<https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2FMCW-Azure-Synapse-Analytics-and-AI%2Fmain%2FHands-on%2520lab%2Fenvironment-setup%2Fautomation%2F00-asa-workspace-core.json>)
-
 Run the below in setup VM. Give correct RG, SQL password & Unique suffix used. Ignore errors, this script will create the delta pipelines that we need. 
 
 ```sql
+
+az login
+Connect-AzAccount
+
+Set-ExecutionPolicy Unrestricted
+
 git clone https://github.com/microsoft/MCW-Azure-Synapse-Analytics-and-AI.git Synapse-MCW
 
 cd './Synapse-MCW/Hands-on lab/environment-setup/automation'
