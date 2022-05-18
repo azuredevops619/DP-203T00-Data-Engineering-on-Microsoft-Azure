@@ -474,7 +474,9 @@ SELECT * FROM master.sys.sql_logins;
 CREATE USER [asa.sql.workload01] FOR LOGIN [asa.sql.workload01]
 CREATE USER [asa.sql.workload02] FOR LOGIN [asa.sql.workload02]
     
+    ```
     
+    ```sql 
     
     --First, let's confirm that there are no queries currently being run by users logged in workload01 or workload02
 
