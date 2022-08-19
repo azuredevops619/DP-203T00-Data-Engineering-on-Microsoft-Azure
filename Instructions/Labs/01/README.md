@@ -66,4 +66,3 @@ Open the **1-Delta-Architecture** notebook. Make sure you attach your cluster to
 
 Within the notebook, you will explore combining streaming and batch processing with a single pipeline.
 
-> After you've completed the notebook, return to this screen, and continue to the next lab.
