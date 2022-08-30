@@ -86,8 +86,6 @@ Below is an example star schema, where the fact table is in the middle, surround
 
 In this task, you create a star schema in SQL database, using foreign key constraints. The first step is to create the base dimension and fact tables.
 
-Note (imp): In the Data source section, for Use existing data, do select Sample database. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
-
 1. Sign in to the Azure portal (<https://portal.azure.com>).
 
 2. Open the resource group for this lab, then select the **SourceDB** SQL database.
