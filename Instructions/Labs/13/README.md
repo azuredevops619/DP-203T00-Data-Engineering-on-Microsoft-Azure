@@ -107,7 +107,7 @@ Having robust Internet security is a must for every technology system. One way t
 
 2. From the left menu of the **Azure Synapse Analytics** page, select **Networking**.
 
-3. Notice that an IP Firewall rule of `Allow All` has already been created for you in the lab environment. If you wanted to add your specific IP address you would instead select **+ Add Client IP** from the taskbar menu (you do not need to do this now).
+3. Notice that an IP Firewall rule of `Allow All` has already been created for you in the lab environment. If you wanted to add your specific IP address you would instead select **+ Add Client IP** from the taskbar menu (Just notice do not select any option).
 
     ![On the Synapse Workspace screen, the + Add Client IP button is selected from the toolbar menu.](media/networking_new.png)
 
