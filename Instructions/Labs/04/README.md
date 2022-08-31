@@ -451,15 +451,13 @@ To test out the permissions, we will add our own account to the `tailwind-reader
 
 ### Task 4: Configure data lake security - Access Control Lists (ACLs)
 
-1. Select **Storage Explorer (preview)** on the left-hand menu **(1)**. Expand CONTAINERS and select the **wwi-02** container **(2)**. Open the **sale-small** folder **(3)**, right-click on the **Year=2019** folder **(4)**, then select **Manage Access.. (5)**.
+1. Select **Storage Explorer (preview)** on the left-hand menu **(1)**. Expand CONTAINERS and select the **wwi-02** container **(2)**. Open the **sale-small** folder **(3)**, right-click on the **Year=2019** folder **(4)**, then select **Manage ACL.. (5)**.
 
     ![The 2019 folder is highlighted and Manage Access is selected.](media/manage-access-2019.png "Storage Explorer")
 
-2. Paste the **Object Id** value you copied from the **`tailwind-2019-writers-<suffix>`** security group into the **Add user, group, or service principal** text box, then select **Add**.
+2. Click on **+ Add principal** Paste the **Object Id** value you copied from the **`tailwind-2019-writers-<suffix>`** security group into the **Add principal** text box, then select the listed value & click **Select**.
 
-    ![The Object Id value is pasted in the field.](media/manage-access-2019-object-id.png "Manage Access")
-
-3. Now you should see that the `tailwind-2019-writers-<suffix>` group is selected in the Manage Access dialog **(1)**. Check the **Access** and **Default** check boxes and the **Read**, **Write**, and **Execute** checkboxes for each **(2)**, then select **Save**.
+3. Now you should see that the `tailwind-2019-writers-<suffix>` group is selected in the Manage Access dialog **(1)**. Check the **Access** check boxes and the **Read**, **Write**, and **Execute** checkboxes then select **Save**.
 
     ![The permissions are configured as described.](media/manage-access-2019-permissions.png "Manage Access")
 
