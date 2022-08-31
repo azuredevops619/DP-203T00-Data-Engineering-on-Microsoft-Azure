@@ -429,9 +429,7 @@ To test out the permissions, we will add our own account to the `tailwind-reader
 
     ![Add role assignment is highlighted.](media/add-role-assignment.png "Add role assignment")
 
-6. For **Role**, select **`Storage Blob Data Reader`**. Search for **`tailwind-readers`** and select `tailwind-readers-<suffix>` from the results, then select **Save**.
-
-    ![The form is displayed as described.](media/add-tailwind-readers.png "Add role assignment")
+6. For **Role**, select **`Storage Blob Data Reader`**. Click **Next** -> Click on **+ Select Member** Search for **`tailwind-readers`** and select `tailwind-readers-<suffix>` from the results, then select **Review + Assign** till it saves.
 
     Since our user account is added to this group, we will have read access to all files in the blob containers of this account. Tailwind Traders will need to add all users to the `tailwind-readers-<suffix>` security group.
 
