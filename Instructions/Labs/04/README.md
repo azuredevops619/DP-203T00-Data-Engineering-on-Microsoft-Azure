@@ -433,13 +433,9 @@ To test out the permissions, we will add our own account to the `tailwind-reader
 
     Since our user account is added to this group, we will have read access to all files in the blob containers of this account. Tailwind Traders will need to add all users to the `tailwind-readers-<suffix>` security group.
 
-7. Select **+ Add**, then **Add role assignment**.
+7. Repeat the steps again. Select **+ Add**, then **Add role assignment**.
 
-    ![Add role assignment is highlighted.](media/add-role-assignment.png "Add role assignment")
-
-8. For **Role**, select **`Storage Blob Data Owner`**. Search for **`tailwind`** and select **`tailwind-history-owners-<suffix>`** from the results, then select **Save**.
-
-    ![The form is displayed as described.](media/add-tailwind-history-owners.png "Add role assignment")
+8. For **Role**, select **`Storage Blob Data Owner`**. Click **Next** -> Click on **+ Select Member** Search for **`tailwind`** and select **`tailwind-history-owners-<suffix>`** from the results, then select **Review + Assign** till it saves.
 
     The `tailwind-history-owners-<suffix>` security group is now assigned to the Azure Storage built-in RBAC role `Storage Blob Data Owner` for the Azure Storage account containing the data lake. This allows Azure AD user and service principals that are added to this role to have the ability to modify all data.
 
