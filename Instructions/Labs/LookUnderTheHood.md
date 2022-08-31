@@ -4,6 +4,7 @@
 -- Table Distribution views
 
 -- Returns the database object identification number of a table 
+-- Replace the schema and table name with any existing table like [wwi].[Date]
 SELECT OBJECT_ID(N'[dbo].[Category]', N'U') AS 'Object ID';  
 GO
 
@@ -131,7 +132,7 @@ SELECT * from sys.dm_pdw_waits;
 -- this view aggregates the amount of waits and waiting time for each wait type on each node of the system
 SELECT * from sys.dm_pdw_wait_stats;
 
--- Which queries are being queued by the system due to concurrency?
+-- Which queries are being queued by the system due to concurrency? No output means nothing in queue
 SELECT r.request_id queuedRequest,r.[status] requestStatus,
 r.command command, waits.[state] wait_state,waits.[resource_class]
 FROM sys.dm_pdw_exec_requests r
