@@ -35,7 +35,7 @@ Tailwind Trader's Data Engineers want a way to explore the data lake, transform 
 
 You must have permissions to create new Azure Active Directory security groups and assign members to them.
 
-**Complete the [lab setup instructions](https://github.com/solliancenet/microsoft-data-engineering-ilt-deploy/blob/main/setup/04/README.md)** for this module.
+**Complete the [lab setup instructions](https://github.com/azuredevops619/microsoft-data-engineering-ilt-deploy/tree/main/setup/04)** for this module.
 
 Note, the following modules share this same environment:
 
