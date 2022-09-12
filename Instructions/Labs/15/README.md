@@ -59,7 +59,7 @@ Before stepping through the exercises in this lab, make sure you have access to 
 
 #### Task 1: Create and configure the Azure Event Hub and Databricks workspace
 
-Follow the [lab 15 setup instructions](https://github.com/solliancenet/microsoft-data-engineering-ilt-deploy/blob/main/setup/15/lab-01-setup.md) to create and configure the workspace. You can reuse the databricks workspace and cluster however should create an Event HUB to ingest data. 
+Follow the [lab 15 setup instructions](https://github.com/azuredevops619/microsoft-data-engineering-ilt-deploy/blob/main/setup/15/lab-01-setup.md) to create and configure the workspace. You can reuse the databricks workspace and cluster however should create an Event HUB to ingest data. 
 
 ### Exercise 1: Complete the Structured Streaming Concepts notebook
 
