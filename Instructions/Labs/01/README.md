@@ -18,6 +18,8 @@ In this module, the student will be able to:
     - [Exercise 1: Complete the lab notebook](#exercise-1-complete-the-lab-notebook)
       - [Task 1: Clone the Databricks archive](#task-1-clone-the-databricks-archive)
       - [Task 2: Complete the following notebook](#task-2-complete-the-following-notebook)
+
+<!--
   - [Lab 2 - Working with Apache Spark in Synapse Analytics](#lab-2---working-with-apache-spark-in-synapse-analytics)
     - [Before the hands-on lab](#before-the-hands-on-lab-1)
       - [Task 1: Create and configure the Azure Synapse Analytics workspace](#task-1-create-and-configure-the-azure-synapse-analytics-workspace)
@@ -26,6 +28,8 @@ In this module, the student will be able to:
       - [Task 1: Index the Data Lake storage with Hyperspace](#task-1-index-the-data-lake-storage-with-hyperspace)
       - [Task 2: Explore the Data Lake storage with the MSSparkUtil library](#task-2-explore-the-data-lake-storage-with-the-mssparkutil-library)
     - [Resources](#resources)
+
+-->
 
 ## Lab 1 - Delta Lake architecture
 
