@@ -507,7 +507,7 @@ GRANT ALTER ON SCHEMA::dbo TO [asa.sql.workload02];
 
     ![The integrate hub is highlighted.](media/integrate-hub.png "Integrate hub")
 
-7. Select the **Lab 08 - Execute Data Analyst and CEO Queries** pipeline **(1)**, which will run / trigger the `asa.sql.workload01` and `asa.sql.workload02` queries. Select **Add trigger (2)**, then **Trigger now (3)**. In the dialog that appears, select **OK**.
+7. Select the **Lab 08 - Execute Data Analyst and CEO Queries** pipeline **(1)**, which will run / trigger the `asa.sql.workload01` and `asa.sql.workload02` queries. Select **Add trigger (2)**, then **Trigger now (3)**. In the dialog that appears, select **OK**. They will timeout after sometime so dont worry when the error comes. Move ahead
 
     ![The add trigger and trigger now menu items are highlighted.](media/trigger-data-analyst-and-ceo-queries-pipeline.png "Add trigger")
 
