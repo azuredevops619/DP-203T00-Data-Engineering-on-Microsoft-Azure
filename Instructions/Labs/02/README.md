@@ -1708,20 +1708,25 @@ In this task, you create a new Synapse integration pipeline to execute the mappi
 6. Under the `Settings` tab, select the **UpdateCustomerDimension** data flow.
 
     ![The settings are configured as described.](media/pipeline-dataflow-settings.png "Data flow settings")
+    
+7. Add a path for the staging linked service. Select your **storage acoount** and select the staging folder from the **Browse** option 
 
-6. Select **Publish all**, then select **Publish** in the dialog that appears.
+    ![Select the path](media/staginglinkedservice.png "select the path")
+
+
+8. Select **Publish all**, then select **Publish** in the dialog that appears.
 
     ![The publish all button is displayed.](media/publish-all-button.png "Publish all button")
 
-7. After publishing completes, select **Add trigger** above the pipeline canvas, then select **Trigger now**.
+9. After publishing completes, select **Add trigger** above the pipeline canvas, then select **Trigger now**.
 
     ![The add trigger button and trigger now menu item are both highlighted.](media/pipeline-trigger.png "Pipeline trigger")
 
-8. Navigate to the **Monitor** hub.
+10. Navigate to the **Monitor** hub.
 
     ![Monitor hub.](media/monitor-hub.png "Monitor hub")
 
-9. Select **Pipeline runs** in the left-hand menu **(1)** and wait for the pipeline run to successfully complete **(2)**. You may have to select **Refresh (3)** several times until the pipeline run completes.
+11. Select **Pipeline runs** in the left-hand menu **(1)** and wait for the pipeline run to successfully complete **(2)**. You may have to select **Refresh (3)** several times until the pipeline run completes.
 
     ![The pipeline run successfully completed.](media/pipeline-runs.png "Pipeline runs")
 
