@@ -1649,7 +1649,7 @@ In this task, you create a mapping data flow to create a Type 1 SCD.
     - **Update method**: Check `Allow upsert` and uncheck all other options
     - **Key columns**: Select `List of columns`, then select `CustomerID` in the list
     - **Table action**: Select `None`
-    - **Enable staging**: Unchecked
+    - **Enable staging**: checked (select it)
 
     ![The sink settings are configured as described.](media/data-flow-sink-settings.png "Sink settings")
 
