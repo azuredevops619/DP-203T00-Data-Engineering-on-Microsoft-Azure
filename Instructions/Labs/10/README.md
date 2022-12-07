@@ -46,7 +46,7 @@ In this module, the student will be able to:
 
 > **Note:** Only complete the `Lab setup and pre-requisites` steps if you are **not** using a hosted lab environment, and are instead using your own Azure subscription. Otherwise, skip ahead to Exercise 0.
 
-**Complete the [lab setup instructions](https://github.com/solliancenet/microsoft-data-engineering-ilt-deploy/blob/main/setup/04/README.md)** for this module.
+**Complete the [lab setup instructions](https://github.com/azuredevops619/microsoft-data-engineering-ilt-deploy/tree/main/setup/04)** for this module.
 
 Note, the following modules share this same environment:
 
