@@ -479,37 +479,20 @@ To test out the permissions, we will add our own account to the `tailwind-reader
 
     ![The Data menu item is highlighted.](media/data-hub.png "Data hub")
 
-2. Select the **Linked** tab **(1)** and expand **Azure Data Lake Storage Gen2**. Expand the `asaworkspaceXX` primary ADLS Gen2 account **(2)** and select the **`wwi-02`** container **(3)**. Navigate to the `sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231` folder **(4)**. Right-click on the `sale-small-20161231-snappy.parquet` file **(5)**, select **New SQL script (6)**, then **Select TOP 100 rows (7)**.
 
-    ![The Data hub is displayed with the options highlighted.](media/data-hub-parquet-select-rows.png "Select TOP 100 rows")
-
-3. Ensure **Built-in** is selected **(1)** in the `Connect to` dropdown list above the query window, then run the query **(2)**. Data is loaded by the serverless SQL pool endpoint and processed as if was coming from any regular relational database.
-
-    ![The Built-in connection is highlighted.](media/built-in-selected.png "Built-in SQL pool")
-
-    The cell output shows the query results from the Parquet file.
-
-    ![The cell output is displayed.](media/sql-on-demand-output.png "SQL output")
-
-    The read permissions to the Parquet file assigned to us through the `tailwind-readers-<suffix>` security group, which then is granted RBAC permissions on the storage account through the **Storage Blob Data Reader** role assignment, is what enabled us to view the file contents.
-
-    However, since we removed our account from the **Storage Blob Data Owner** role, and we did not add our account to the `tailwind-history-owners-<suffix>` security group, what if we try to write to this directory?
-
-    Let's give it a try.
-
-4. In the **Data** hub, once again select the **Linked** tab **(1)** and expand **Azure Data Lake Storage Gen2**. Expand the `asaworkspaceXX` primary ADLS Gen2 account **(2)** and select the **`wwi-02`** container **(3)**. Navigate to the `sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231` folder **(4)**. Right-click on the `sale-small-20161231-snappy.parquet` file **(5)**, select **New Notebook (6)**, then select **Load to DataFrame (7)**.
+2. In the **Data** hub, once again select the **Linked** tab **(1)** and expand **Azure Data Lake Storage Gen2**. Expand the `asaworkspaceXX` primary ADLS Gen2 account **(2)** and select the **`wwi-02`** container **(3)**. Navigate to the `sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231` folder **(4)**. Right-click on the `sale-small-20161231-snappy.parquet` file **(5)**, select **New Notebook (6)**, then select **Load to DataFrame (7)**.
 
     ![The Data hub is displayed with the options highlighted.](media/data-hub-parquet-new-notebook.png "New notebook")
 
-5. Attach your Spark pool to the notebook.
+3. Attach your Spark pool to the notebook.
 
     ![The Spark pool is highlighted.](media/notebook-attach-spark-pool.png "Attach Spark pool")
 
-6. In the notebook, select **+**, then **</> Code cell** underneath Cell 1 to add a new code cell.
+4. In the notebook, select **+**, then **</> Code cell** underneath Cell 1 to add a new code cell.
 
     ![The new code cell button is highlighted.](media/new-code-cell.png "New code cell")
 
-7. Enter the following in the new cell, then **copy the Parquet path from cell 1** and paste the value to replace `REPLACE_WITH_PATH` **(1)**. Rename the Parquet file by adding `-test` to the end of the file name **(2)**:
+5. Enter the following in the new cell, then **copy the Parquet path from cell 1** and paste the value to replace `REPLACE_WITH_PATH` **(1)**. Rename the Parquet file by adding `-test` to the end of the file name **(2)**:
 
     ```python
     df.write.parquet('REPLACE_WITH_PATH')
@@ -517,35 +500,35 @@ To test out the permissions, we will add our own account to the `tailwind-reader
 
     ![The notebook is displayed with the new cell.](media/new-cell.png "New cell")
 
-8. Select **Run all** in the toolbar to run both cells. After a few minutes when the Spark pool starts and the cells run, you should see the file data in the output from cell 1 **(1)**. However, you should see a **403 error** in the output of cell 2 **(2)**.
+6. Select **Run all** in the toolbar to run both cells. After a few minutes when the Spark pool starts and the cells run, you should see the file data in the output from cell 1 **(1)**. However, you should see a **403 error** in the output of cell 2 **(2)**.
 
     ![The error is displayed in Cell 2's output.](media/notebook-error.png "Notebook error")
 
     As expected, we do not have write permissions. The error returned by cell 2 is, `This request is not authorized to perform this operation using this permission.`, with a status code of 403.
 
-9. Leave the notebook open and switch back to the Azure portal (<https://portal.azure.com>) in another tab.
+7. Leave the notebook open and switch back to the Azure portal (<https://portal.azure.com>) in another tab.
 
-10. Select the Azure menu **(1)**, then select **Azure Active Directory (2)**.
+8. Select the Azure menu **(1)**, then select **Azure Active Directory (2)**.
 
     ![The menu item is highlighted.](media/azure-ad-menu.png "Azure Active Directory")
 
-11. Select **Groups** in the left-hand menu.
+9. Select **Groups** in the left-hand menu.
 
     ![Groups is highlighted.](media/aad-groups-link.png "Azure Active Directory")
 
-12. Type **`tailwind`** in the search box **(1)**, then select **`tailwind-history-owners-<suffix>`** in the results **(2)**.
+10. Type **`tailwind`** in the search box **(1)**, then select **`tailwind-history-owners-<suffix>`** in the results **(2)**.
 
     ![The tailwind groups are displayed.](media/tailwind-groups.png "All groups")
 
-13. Select **Members (1)** on the left, then select **+ Add members (2)**.
+11. Select **Members (1)** on the left, then select **+ Add members (2)**.
 
     ![The group is displayed and add members is highlighted.](media/tailwind-history-owners.png "tailwind-history-owners group")
 
-14. Add your user account that you are signed into for the lab, then select **Select**.
+12. Add your user account that you are signed into for the lab, then select **Select**.
 
     ![The form is displayed.](media/add-members.png "Add members")
 
-15. Switch back to the open Synapse Notebook in Synapse Studio, then **Run** cell 2 once more **(1)**. You should see a status of **Succeeded (2)** after a few moments.
+13. Switch back to the open Synapse Notebook in Synapse Studio, then **Run** cell 2 once more **(1)**. You should see a status of **Succeeded (2)** after a few moments.
 
     ![Cell 2 succeeded.](media/notebook-succeeded.png "Notebook")
 
@@ -555,6 +538,6 @@ To test out the permissions, we will add our own account to the `tailwind-reader
 
     Now let's verify that the file was written to the data lake.
 
-16. Navigate back to the `sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231` folder. You should now see a folder for the new `sale-small-20161231-snappy-test.parquet` file we wrote from the notebook **(1)**. If you don't see it listed here, select **... More** in the toolbar **(2)**, then select **Refresh (3)**.
+14. Navigate back to the `sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231` folder. You should now see a folder for the new `sale-small-20161231-snappy-test.parquet` file we wrote from the notebook **(1)**. If you don't see it listed here, select **... More** in the toolbar **(2)**, then select **Refresh (3)**.
 
     ![The test Parquet file is displayed.](media/test-parquet-file.png "Test parquet file")
